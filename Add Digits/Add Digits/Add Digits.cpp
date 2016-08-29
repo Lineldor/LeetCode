@@ -7,11 +7,15 @@ int main(){
 	int flag=n;
 	while (flag){
 		flag_inner=flag;
+		sum=0;//必须进行初始化，不然sum的值不变会陷入死循环。
 	    while(flag_inner){
-		    sum+=flag_inner%10;
-		    flag_inner=flag_inner/10;
+		    sum+=flag_inner%10;//实现各位相加
+		    flag_inner=flag_inner/10;//退位
 	}
-	flag=sum;
+	    if (sum>=10)
+	        flag=sum;
+	    else
+		    flag=0;
 
 	}
 	std::cout<<sum<<std::endl;
