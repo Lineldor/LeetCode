@@ -2,9 +2,12 @@
 #include <vector>
 
 int main(){
-	int n,sum=0,flag_inner;
-	std::cin>>n;
-	int flag=n;
+	std::vector<int> n;
+	for (int i=1;i<=200;++i)
+		n.push_back(i);
+	int flag,flag_inner,sum=0;
+	for (auto &j:n){
+		flag=j;
 	while (flag){
 		flag_inner=flag;
 		sum=0;//必须进行初始化，不然sum的值不变会陷入死循环。
@@ -18,6 +21,7 @@ int main(){
 		    flag=0;
 
 	}
-	std::cout<<sum<<std::endl;
+	std::cout<<j<<' '<<j%9<<' '<<sum<<std::endl;//最终规律：return n!=0? (n%9==0? 9:n%9):0
+	}
 
 }
